@@ -1,0 +1,84 @@
+<main class="container">
+    <form [formGroup]="userForm" class="user-form">
+        <mat-form-field class="form-field">
+            <input matInput placeholder="First Name"
+                   formControlName="firstName">
+            <mat-hint></mat-hint>
+            <mat-error
+                    *ngIf="userForm.controls['firstName'].hasError('pattern') && !userForm.controls['firstName'].hasError('required')">
+                Please enter a valid first name
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">
+                First name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Last name"
+                   formControlName="lastName">
+            <mat-hint></mat-hint>
+            <mat-error
+                    *ngIf="userForm.controls['lastName'].hasError('pattern') && !userForm.controls['lastName'].hasError('required')">
+                Please enter a valid last name
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">
+                First name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Address line 1"
+                   formControlName="addressLine1">
+            <mat-hint></mat-hint>
+            <mat-error
+                    *ngIf="userForm.controls['addressLine1'].hasError('pattern') && !userForm.controls['addressLine1'].hasError('required')">
+                Please enter a valid adress line 1
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['addressLine1'].hasError('required')">
+                Address line 1 is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Address line 2"
+                   formControlName="addressLine2">
+            <mat-hint></mat-hint>
+            <mat-error *ngIf="userForm.controls['addressLine2'].hasError('pattern')">
+                Please enter a valid address line 2
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="City"
+                   formControlName="city">
+            <mat-hint></mat-hint>
+            <mat-error
+                    *ngIf="userForm.controls['city'].hasError('pattern') && !userForm.controls['city'].hasError('required')">
+                Please enter a valid City name
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['city'].hasError('required')">
+                City name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-select placeholder="Choose a state" [formControlName]="'state'">
+                <mat-option>Clear</mat-option>
+                <mat-option value="Delhi">Delhi</mat-option>
+                <mat-option value="Gurgaon">Gurgaon</mat-option>
+                <mat-option value="Punjab">Punjab</mat-option>
+            </mat-select>
+            <mat-hint></mat-hint>
+            <mat-error *ngIf="userForm.controls['state'].hasError('required')">You must choose a state</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput
+                   placeholder="Zip"
+                   formControlName="zip">
+            <mat-hint></mat-hint>
+            <mat-error
+                    *ngIf="userForm.controls['zip'].hasError('pattern') && !userForm.controls['zip'].hasError('required')">
+                Please enter a valid zip code(Zip code must have only 5 numbers)
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['zip'].hasError('required')">
+                Zip code is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-button (click)="onSubmit()" [disabled]="!userForm.valid">Submit</button>
+    </form>
+</main>

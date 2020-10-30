@@ -1,0 +1,4 @@
+.user-values{
+    display: flex;
+    flex-direction: column;
+}

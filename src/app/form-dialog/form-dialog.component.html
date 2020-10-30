@@ -1,0 +1,11 @@
+<div>
+    <h2 mat-dialog-title>Your data</h2>
+    <hr>
+    <mat-dialog-content>
+        <section class="user-values">
+            <ng-container *ngFor="let field of getUserInfo()">
+                <span><strong>{{field.title}}</strong>{{field.value}}</span>
+            </ng-container>
+        </section>
+    </mat-dialog-content>
+</div>
